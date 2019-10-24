@@ -104,6 +104,37 @@ CASO 3. LOS CUATRO PERROS.
 Tenemos cuatro perros: un galgo, un dogo, un alano y un podenco. Éste último come más que el galgo; el alano come más que el galgo y menos que el dogo, pero éste come más que el podenco. ¿Cuál de los cuatro perros come menos?.
 =============================================*/
 
+var perros = {
+    galgo: 0,
+    dogo: 0,
+    alano: 0,
+    podenco: 0,
+    resultado: function(){
+        if(perros.podenco > perros.galgo &&
+           perros.alano > perros.galgo &&
+           perros.dogo > perros.alano &&
+           perros.alano > perros.podenco){
+            return true;
+        }
+        return false;
+    },
+    intervalo: setInterval(function(){
+
+        perros.galgo = Math.ceil(Math.random()*4)
+        perros.dogo = Math.ceil(Math.random()*4)
+        perros.alano = Math.ceil(Math.random()*4)
+        perros.podenco = Math.ceil(Math.random()*4)
+
+        if(perros.resultado()){
+            clearInterval(perros.intervalo);
+            console.log("Galgo: ", perros.galgo);
+            console.log("Dogo: ", perros.dogo);
+            console.log("Alano: ", perros.alano);
+            console.log("Podenco: ", perros.podenco);
+        }
+    },10)
+}
+
 /*=============================================
 CASO 4. SEIS AMIGOS DE VACACIONES. 
 
@@ -115,3 +146,31 @@ CASO 5. SILENCIO.
 
 Si Ángela habla más bajo que Rosa y Celia habla más alto que Rosa, ¿habla Ángela más alto o más bajo que Celia?
 =============================================*/
+
+var gritona = {
+    angela: 0,
+    rosa: 0,
+    celia: 0,
+    comparacion: function(){
+        if(gritona.rosa > gritona.angela &&
+           gritona.celia > gritona.rosa ){
+               return true;
+        }
+        return false;
+    },
+    intervalo: setInterval(function(){
+        
+        gritona.angela = Math.ceil(Math.random()*3);
+        gritona.rosa = Math.ceil(Math.random()*3);
+        gritona.celia = Math.ceil(Math.random()*3);
+
+        
+        if(gritona.comparacion()){
+            clearInterval(gritona.intervalo);
+            console.log("Ángela: ", gritona.angela);
+            console.log("Rosa: ", gritona.rosa);
+            console.log("Celia: ", gritona.celia);
+        }
+        
+    },10)
+}
